@@ -6,9 +6,19 @@
   </head>
   <body style="text-align: center;">
     <p>请在会话中使用</p>
-    <h2>.github login <span id="code">114514</span></h2>
-    <p>Powered by XDbot2</p>
-    <script src="./github.js"></script>
+    <h2 style="background-color: gainsboro;" id="command">.github login <span id="code"></span></h2>
+    <p>Powered by <a href="https://github.com/ITCraftDevelopmentTeam/XDbot2">XDbot2</a></p>
+    <script>
+      document.getElementById("code").innerText = new URLSearchParams(location.search).get("code");
+      document.getElementById("command").addEventListener("click",function(){
+        let tmpInput = document.createElement("input");
+        document.body.appendChild(tmpInput);
+        tmpInput.value = ".github login "+document.getElementById("code").innerText;
+        tmpInput.select();
+        document.execCommand("cut");
+        tmpInput.remove();
+        alert("已复制到剪贴板：.github login "+document.getElementById("code").innerText)
+      })
+    </script>
   </body>
 </html>
-
